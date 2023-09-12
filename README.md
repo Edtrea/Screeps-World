@@ -4,8 +4,8 @@ My JavaScript code for the game Screeps: World
 Goal is to build a autonomous Screeps Finite State Machine AI
 For now, the goal does not include multi-room logic where nearby rooms could help each other or for autonomous room planning.
 
-#work-in-progess logic
-##Room
+# work-in-progess logic
+## Room
 - Stage
   - Determined by controller level, structures unlocked limits found in constant `CONTROLLER_STRUCTURES`
 - State
