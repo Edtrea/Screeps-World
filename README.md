@@ -33,22 +33,37 @@ Each creep's current role would be stored in `memory.role`, which will dictate w
 
 Each creep will have its current state stored in each creeps' `memory.state`, which shows what task the creep is doing to fulfil its role.
 
+There are 2 broad categories of creeps; workers and soldier. The creep categories are stored in `memory.category`.
+
 ## Worker
 Worker creeps are a creep category that uses `WORK`, `CARRY`, & `MOVE` parts.
+Worker creeps are in charge of the building and maintainance of a room.
 Worker creeps have 4 different roles whose main functions are:
   1. **Harvester** ; Havest resources
-  2. **Transferer** ; Takes harvested resouces to stuctures that requires them or to store them
+  2. **Transferer** ; Takes harvested resouces to stuctures
   3. **Upgrader** ; Upgrade controller
   4. **Builder** ; Build structures
 
-All 4 creep roles should be able to replace each other or take over the other roles' function temporarily without issue.
+All 4 creep roles should be able to replace each other or take over the other roles' function temporarily without issue. e.g. when a harvester dies a transferer could be reassigned as a harvester to take over the role of harvesting immediately.
 ### Harvester
+Only 1 harvester should be created for each havestable resource node in a room. Resources harvested in claimed rooms are dropped/put into nearby link. Resources harvested in unclaimed rooms are instead held and carried back.
 
 ### Transferer
+Only 1 transferer should be created for each room. 
+
+During room state 1, resources dropped will be picked up and transfered to structures, resources in links will also be transfered to other structures but will not withdraw energy from storages to transfer to spawns and extensions.
+
+During room state 2, resources dropped will be picked up and transfered to stuctures, resources in links will also be transferred to other structures and will withdraw energy from storages to ensure spawns and exntensions are full
+
+During room state 3, resources dropped will not be picked up unless there are not hostile creeps in the room, resources in links will also be transferred to other structures and will withdraw energy from storages to ensure spawns and exntensions are full
+
+When there are no transfering task to do, the transferer would search for building/upgrading job to do.
 
 ### Upgrader
+Only 1 upgrader should be created for each room
 
 ### Builder
+Only 1 builder should be created for each room
 
 # Tower
 
