@@ -29,12 +29,22 @@ Each room should operate based on its Stage + State
 | * 3 | Extensions/Spawn/Towers (in that order of priority) should always be stocked up with energy even if by transfering from containers or storage, offensive creeps will also need to be spawned |
 
 # Creeps
+## Worker
+Worker creeps are a creep category that uses `WORK`, `CARRY`, & `MOVE` parts.
+Worker creeps have 4 different roles whose main functions are:
+  1. **Harvester** ; Havest resources
+  2. **Transferer** ; Takes harvested resouces to stuctures that requires them or to store them
+  3. **Upgrader** ; Upgrade controller
+  4. **Builder** ; Build structures
 
-## Harvester
+All 4 creep roles should be able to replace each other or take over the other roles' function temporarily without issue.
+### Harvester
 
-## Upgrader
+### Transferer
 
-## Builder
+### Upgrader
+
+### Builder
 
 # Tower
 
