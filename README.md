@@ -29,6 +29,10 @@ Each room should operate based on its Stage + State
 | * 3 | Extensions/Spawn/Towers (in that order of priority) should always be stocked up with energy even if by transfering from containers or storage, offensive creeps will also need to be spawned |
 
 # Creeps
+Each creep's current role would be stored in `memory.role`, which will dictate which function it is expected to fulfil in the room.
+
+Each creep will have its current state stored in each creeps' `memory.state`, which shows what task the creep is doing to fulfil its role.
+
 ## Worker
 Worker creeps are a creep category that uses `WORK`, `CARRY`, & `MOVE` parts.
 Worker creeps have 4 different roles whose main functions are:
