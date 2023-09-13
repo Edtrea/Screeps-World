@@ -28,12 +28,13 @@ var roleHarvester = {
             var targets = creep.room.find(FIND_MY_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_EXTENSION ||
-                        structure.structureType == STRUCTURE_TOWER) &&
+                        structure.structureType == STRUCTURE_TOWER ||
+                        structure.structureType == STRUCTURE_SPAWN) &&
                         structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
                 }
             });
             
-            
+            console.log(targets)
             if(targets.length > 0) {
                 if(creep.transfer(targets[targets.length - 1], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[targets.length - 1], {visualizePathStyle: {stroke: '#ffffff'}});
