@@ -46,6 +46,8 @@ Worker creeps have 4 different roles whose main functions are:
 
 All 4 creep roles should be able to replace each other or take over the other roles' function temporarily without issue. e.g. when a harvester dies a transferer could be reassigned as a harvester to take over the role of harvesting immediately.
 ### Harvester
+![image](https://github.com/Edtrea/Screeps-World/assets/86367432/817a23ad-4e0e-45ae-a2c6-a7a5ccc1147c)
+
 Only 1 harvester should be created for each havestable resource node in a room. Resources harvested in claimed rooms are dropped/put into nearby link. Resources harvested in unclaimed rooms are instead held and carried back.
 
 ### Transferer
