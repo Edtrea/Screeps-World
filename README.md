@@ -62,11 +62,17 @@ During room state 3, resources dropped will not be picked up unless there are no
 When there are no transfering task to do, the transferer would search for building/upgrading job to do.
 
 ### Upgrader
-Only 1 upgrader should be created for each room
+Only 1 upgrader should be created for each room.
+
+Upgrader's only task is to upgrade the controller. Once the controller is fully upgraded the upgrader would only upgrade the controller when it is 50% in the process of downgrading. At other times, it will help with transferer/builder's tasks.
 
 ### Builder
 Only 1 builder should be created for each room
 
 # Tower
+During room state 1 & 2, towers will focus on repairing stuctures.
+
+During room state 3, towers will attack NPC invaders while focuses on repairing structures or healing creeps during player invasion.
 
 # Flags
+Flags will be used to manually control the Creeps
