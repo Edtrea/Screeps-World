@@ -27,14 +27,14 @@ Each creep's current role would be stored in `memory.role`, which will dictate w
 
 Each creep will have its current state stored in each creeps' `memory.state`, which shows what task the creep is doing to fulfil its role.
 
-There are 2 broad categories of creeps; workers and soldier. The creep categories are stored in `memory.category`.
+There are 2 broad categories of creeps; workers and soldiers. The creep categories are stored in `memory.category`.
 
 ## Worker
 Worker creeps are a creep category that uses `WORK`, `CARRY`, & `MOVE` parts.
-Worker creeps are in charge of the building and maintainance of a room.
+Worker creeps are in charge of the building and maintenance of a room.
 Worker creeps have 4 different roles whose main functions are:
-  1. **Harvester** ; Havest resources
-  2. **Transferer** ; Takes harvested resouces to stuctures
+  1. **Harvester** ; Harvest resources
+  2. **Transferer** ; Takes harvested resources to structures
   3. **Upgrader** ; Upgrade controller
   4. **Builder** ; Build structures
 
@@ -56,12 +56,35 @@ During room state 3, resources dropped will not be picked up unless there are no
 When there are no transfering tasks to do, the transferer would renew itself.
 
 ### Upgrader
+![image](https://github.com/Edtrea/Screeps-World/assets/86367432/442b1a67-d1bd-4067-ac81-9f642b68bd8f)
+
 Only 1 upgrader should be created for each room.
 
 Upgrader's only task is to upgrade the controller. Once the controller is fully upgraded, the upgrader would only upgrade the controller when it is 50% in the process of downgrading. At other times, it will help with the transferer/builder's tasks.
 
 ### Builder
 Only 1 builder should be created for each room
+
+# Soldiers
+Soldiers are creeps that use `ATTACK`, `RANGED_ATTACK`, `HEAL` and `CLAIM` parts.
+Soldiers are in charge of defending rooms from invaders or expanding the colony by claiming rooms.
+There are 3 main categories of soldier creeps
+  1. **Attacker** ; Mainly uses `ATTACK`and `RANGED_ATTACK` parts to damage creeps and structures
+  2. **Healer** ; Mainly uses `HEAL` parts to heal damaged creeps
+  3. **Claimer** ; Mainly uses `CLAIM' parts to claim rooms
+
+Soldier creeps are specialized; unlike worker creeps, they cannot replace each other.
+
+*When a room is in state 3, it will try to mimic the invading creep's parts composition and spawn them accordingly.*
+
+## Attacker
+
+
+## Healer
+
+
+## Claimer
+
 
 # Tower
 During room state 1 & 2, towers will focus on repairing structures.
