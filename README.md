@@ -11,7 +11,6 @@ For now, the goal does not include multi-room logic where nearby rooms could hel
 2. **Queen** ; Manages a single room
 3. **Creep** ; single creep
 
-## Colony
 
 # Room
 - Stage
