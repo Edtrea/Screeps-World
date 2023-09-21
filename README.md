@@ -1,10 +1,17 @@
 # Screeps-World
 My JavaScript code for the game Screeps: World
 
-Goal is to build a autonomous Screeps Finite State Machine AI
+Goal is to build an autonomous Screeps Finite State Machine AI
 For now, the goal does not include multi-room logic where nearby rooms could help each other or for autonomous room planning.
 
 **This work-in-progess logic**
+
+# AI Hierarchy
+1. **Colony** ; Manages multiple rooms
+2. **Queen** ; Manages a single room
+3. **Creep** ; single creep
+
+## Colony
 
 # Room
 - Stage
@@ -33,10 +40,10 @@ There are 2 broad categories of creeps; workers and soldiers. The creep categori
 Worker creeps are a creep category that uses `WORK`, `CARRY`, & `MOVE` parts.
 Worker creeps are in charge of the building and maintenance of a room.
 Worker creeps have 4 different roles whose main functions are:
-  1. **Harvester** ; Harvest resources
-  2. **Transferer** ; Takes harvested resources to structures
-  3. **Upgrader** ; Upgrade controller
-  4. **Builder** ; Build structures
+  - **Harvester** ; Harvest resources
+  - **Transferer** ; Takes harvested resources to structures
+  - **Upgrader** ; Upgrade controller
+  - **Builder** ; Build structures
 
 All 4 creep roles should be able to replace each other or take over the other roles' function temporarily without issue. e.g. when a harvester dies, a transferer could be reassigned as a harvester to take over the role of harvesting immediately.
 ### Harvester
@@ -53,7 +60,7 @@ During room state 2, resources dropped will be picked up and transferred to stru
 
 During room state 3, resources dropped will not be picked up unless there are no hostile creeps in the room, resources in links will also be transferred to other structures and will withdraw energy from storages to ensure spawns and extensions are full.
 
-When there are no transfering tasks to do, the transferer would renew itself.
+When there are no transferring tasks to do, the transferer will renew itself.
 
 ### Upgrader
 ![image](https://github.com/Edtrea/Screeps-World/assets/86367432/442b1a67-d1bd-4067-ac81-9f642b68bd8f)
@@ -69,9 +76,9 @@ Only 1 builder should be created for each room
 Soldiers are creeps that use `ATTACK`, `RANGED_ATTACK`, `HEAL` and `CLAIM` parts.
 Soldiers are in charge of defending rooms from invaders or expanding the colony by claiming rooms.
 There are 3 main categories of soldier creeps
-  1. **Attacker** ; Mainly uses `ATTACK`and `RANGED_ATTACK` parts to damage creeps and structures
-  2. **Healer** ; Mainly uses `HEAL` parts to heal damaged creeps
-  3. **Claimer** ; Mainly uses `CLAIM' parts to claim rooms
+  - **Attacker** ; Mainly uses `ATTACK`and `RANGED_ATTACK` parts to damage creeps and structures
+  - **Healer** ; Mainly uses `HEAL` parts to heal damaged creeps
+  - **Claimer** ; Mainly uses `CLAIM' parts to claim rooms
 
 Soldier creeps are specialized; unlike worker creeps, they cannot replace each other.
 
@@ -87,7 +94,7 @@ Soldier creeps are specialized; unlike worker creeps, they cannot replace each o
 
 
 # Tower
-During room state 1 & 2, towers will focus on repairing structures.
+During room state 1 or 2, towers will focus on repairing structures.
 
 During room state 3, towers will attack NPC invaders but focus on repairing structures or healing creeps during player invasion.
 
