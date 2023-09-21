@@ -52,6 +52,8 @@ All 4 creep roles should be able to replace each other or take over the other ro
 Only 1 harvester should be created for each harvestable resource node in a room. Resources harvested in claimed rooms are dropped/put into nearby link. Resources harvested in unclaimed rooms are instead held and carried back.
 
 ### Transferer
+![image](https://github.com/Edtrea/Screeps-World/assets/86367432/8ffe3fbe-2767-4222-a0bb-657222ee5fc7)
+
 Only 1 transferer should be created for each room. Its role is to carry harvested resources from resource nodes to
 
 During room state 1, resources dropped will be picked up and transferred to structures, resources in links will also be transferred to other structures but will not withdraw energy from storages to transfer to spawns and extensions.
