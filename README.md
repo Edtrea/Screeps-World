@@ -51,7 +51,7 @@ All 4 creep roles should be able to replace each other or take over the other ro
 Only 1 harvester should be created for each harvestable resource node in a room. Resources harvested in claimed rooms are dropped/put into nearby link. Resources harvested in unclaimed rooms are instead held and carried back.
 
 ### Transferer
-![image](https://github.com/Edtrea/Screeps-World/assets/86367432/8ffe3fbe-2767-4222-a0bb-657222ee5fc7)
+![image](https://github.com/Edtrea/Screeps-World/assets/86367432/cf91b84a-e2a3-4c4d-beca-37b1097fb4bc)
 
 Only 1 transferer should be created for each room. Its role is to carry harvested resources from resource nodes to
 
@@ -71,6 +71,8 @@ Only 1 upgrader should be created for each room.
 Upgrader's only task is to upgrade the controller. Once the controller is fully upgraded, the upgrader would only upgrade the controller when it is 50% in the process of downgrading. At other times, it will help with the transferer/builder's tasks.
 
 ### Builder
+![image](https://github.com/Edtrea/Screeps-World/assets/86367432/d4bcdc61-eb59-4999-94d7-14d9e6950e0e)
+
 Only 1 builder should be created for each room
 
 # Soldiers
