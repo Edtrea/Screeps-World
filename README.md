@@ -46,10 +46,7 @@ Worker creeps have 4 different roles whose main functions are:
 
 All 4 creep roles should be able to replace each other or take over the other roles' function temporarily without issue. e.g. when a harvester dies, a transferer could be reassigned as a harvester to take over the role of harvesting immediately.
 
-| Stage  | Sets of ('WORK','CARRY','MOVE') parts |
-| ---      | ---       |
-|  1  |  1  |
-|  2  |  2  |
+The size of the worker creep is determined by the max room energy capacity. Only workers with complete sets of ('WORK','CARRY','MOVE') parts are produced. Each set costs 200 energy.
 
 ### Harvester
 ![image](https://github.com/Edtrea/Screeps-World/assets/86367432/817a23ad-4e0e-45ae-a2c6-a7a5ccc1147c)
