@@ -1,0 +1,7 @@
+Colony is an collection of all queen/rooms
+writes the current colony state and a array of room objects in each shards into the memory
+Stores the following in memory:
+    current colony state
+    Array of room objects
+    cooldown timer to check and update colony state
+

@@ -1,0 +1,33 @@
+A Queen is responsible for the management of a single room
+Stores the following in memory:
+    Current stage/controller level of the room
+    Current state of the room
+    Count of each type of creeps born from the room and is still alive
+At regular intervals (10 ticks) the queen will check and update the current room stage and the state in the memory
+At every tick, it will cross-check existing worker creeps and the memory for any dead worker creep. It will call spawner to spawn new creep with the dead creep's memory to replace them.
+
+Queen(room)
+{
+    if(Memory.colony.timer == 0)
+    {
+        room.memory.stage = room.controller.level;
+
+        if(Invaders in room && Invader is NPC OR Invader attacked structures in room)
+        {
+            room.memory.state = 3;
+        }
+        else if(Invader in room)
+        {
+            room.memory.state = 2;
+        }
+        else
+        {
+            room.memeory.state = 1;
+        }
+    }
+
+
+
+    Spawner(room)
+
+}

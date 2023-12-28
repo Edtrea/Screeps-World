@@ -1,0 +1,48 @@
+Main runs the following once every tick:
+    Colony : program that dictates the overall behaviour of all rooms
+    Queen : program that dictates the overall behaviour of one room
+    Creeps : program that dictates the overall behaviour of a single creep
+    Towers : program that dictates the overall behaviour of towers
+
+if(Game.cpu.bucket === PIXEL_CPU_COST)
+{
+    Game.cpu.generatePixel();
+}
+
+if(Memory.colony.timer NOT EXIST)
+{
+    Memory.colony.timer = 0;
+}
+else
+{
+    if(Memory.colony.timer == 10)
+    {
+        Memory.colony.timer = 0;
+    }
+    else
+    {
+        Memory.colony.timer = Memory.colony.timer + 1;
+    }
+}
+
+for(var name in Memory.creeps)
+{
+    if(!Game.creeps[name])
+    {
+        delete Memory.creeps[name];
+    }
+}
+
+Colony()
+
+for(var room in Game.rooms)
+{
+    Queen(room);
+}
+
+for(var creep in Game.creeps)
+{
+    Creeps(creep);
+}
+
+Towers()

@@ -1,0 +1,5 @@
+A creep object of the worker type
+Each worker stores the following in memory:
+    creep Category
+    Creep role
+    Creep state

@@ -1,0 +1,110 @@
+Creep object for harvester
+Each harvester stores the following in memory:
+    The category of the creep
+    The role of the creep
+    Current state of the creep
+    target ID of current objective if there are
+    harvest target ID
+
+Possible states for a harvester:
+    Move
+    Harvest
+    Transfer
+    Drop
+
+Harvesters are spawned with Move state and assigned a target(Source/Mineral deposit) by the spawner. The preset memory will be from a previously generation harvester unless it is the first harvester the room spawns.
+
+If resource is energy:
+    It will move to the target and proceed to continually harvest the resource.
+    If there are no container or link, it will drop the energy on the ground once full
+    If there are link and container around itself AND there are 2 or more links in the room, the harvester will prorioritize depositing in link over a container.
+
+If resource is mineral (Is not energy)
+    It will gather the mineral till capacity is maxed before transporting it to the storage or a container if it is near the mineral deposit.
+
+Harvester(creep)
+{
+    switch(creep.memory.state):
+        case Move:
+            if (creep.store IS EMPTY)
+            {
+                if (target not in range)
+                {
+                    creep.moveTo(target);
+                }
+                else if (target in range)
+                {
+                    creep.memory.state = "Harvest";
+                }
+            }
+            else if (creep.store IS NOT EMPTY) // Always be mineral if not empty
+            {
+                if(room.storage NOT IN RANGE)
+                {
+                    creep.moveTo(room.storage);
+                }
+                else
+                {
+                    creep.memeory.state = "Transfer";
+                }
+            }
+
+        case Harvest:
+            if (creep.store IS NOT FULL)
+            {
+                creep.harvest;
+            }
+            else if (creep.store IS FULL)
+            {
+                if (creep.store[RESOURCE_ENERGY] > 0)
+                {
+                    if (creep.pos.findInRange(link OR container,1))
+                    {
+                        creep.memory.state = "Transfer";
+                    }
+                    else
+                    {
+                        creep.memeory.state = "Drop";
+                    }
+                }
+                else if (creep.store[RESOURCE_MINERAL] > 0)
+                {
+                    if (creep.pos.findInRange(container,1))
+                    {
+                        creep.memory.state = "Transfer";
+                    }
+                    else
+                    {
+                        creep.memory.state = "Move";
+                    }
+                }
+            }
+
+        case Transfer:
+            if (creep.store[RESOURCE_ENERGY] > 0)
+            {
+                if (creep.pos.findInRange(link,1))
+                {
+                    creep.transfer(RESOURCE_ENERGY, link);
+                }
+                else if(creep.pos.findInRange(container, 0))
+                {
+                    creep.transfer(RESOURCE_ENERGY, container);
+                }
+            }
+            if (creep.store[RESOURCE_MINERAL] > 0)
+            {
+                if (creep.pos.findInRange(container, 1))
+                {
+                    creep.transfer(RESOURCE_MINERAL, container);
+                }
+                if (creep.pos.findInRange(storage, 1))
+                {
+                    creep.transfer(RESOURCE_MINERAL, storage);
+                }
+            }
+
+        case Drop:
+            creep.drop(RESOURCE_ENERGY);
+            creep.memory.state = "Move";
+}

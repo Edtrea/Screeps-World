@@ -1,0 +1,7 @@
+An parent object for all creeps
+Stores the following in memory:
+    Room it is assigned to
+    Category it is under (worker/soldier)
+    Role (Harvesters, transferer, builder, upgrader etc.)
+    State
+

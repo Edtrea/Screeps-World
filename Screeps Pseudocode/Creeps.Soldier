@@ -1,0 +1,5 @@
+A creep object for the soldier type
+Each soldier stores the following in memory:
+    creep Category
+    Creep role
+    Creep state

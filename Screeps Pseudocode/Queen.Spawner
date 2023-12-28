@@ -1,0 +1,18 @@
+The spawner works to make sure there are enough creeps 
+When certain creep roles are required, it will first check if there are existing extra creeps and change its roles instead of spawning.
+The size of Worker creeps spawned are determined by the max energy capacity of the room. However, the max size is 5 sets of worker parts.
+
+Spawner(room)
+{
+    int setsOfWorkerParts = room.energy.CapacityAvailable / WORKER_BODY_SET_COST;
+    
+    if (setsOfWorkerParts > 5)
+    {
+        setsOfWorkerParts = 5
+    }
+
+    spawns = room.find(FIND_MY_STRUCTURES, {filter: function(object) {object.structureType == STRUCTURE_SPAWN && object.spawning == NULL}});
+
+    Game.spawns[spawns[0]].spawnCreep([WORKER_BODY_SET*setsOfWorkerParts], "Worker" + room.name + Game.time)
+
+}

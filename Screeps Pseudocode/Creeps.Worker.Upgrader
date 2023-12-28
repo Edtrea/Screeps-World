@@ -1,0 +1,16 @@
+Creep object for upgrader
+Each upgrader stores the following in memory:
+    The category of the creep
+    The role of the creep
+    Current state of the creep
+
+Possible states for a upgrader:
+    Renew
+    Withdraw
+    Transfer
+    upgrader
+
+Upgrader will focus on upgrading the room controller.
+If room controller is less than 8, it will continually try to get energy from link and upgrade the controller.
+If room controller is 8, it will only update when the controller's ticksToDowngrade is < 100,000 ticks.
+Other times, the upgrader will be a transferer and when the above conditions are met, the queen will find a transferer that has no resources on hand to switch to upgrader role to tag the controller.

@@ -1,0 +1,35 @@
+Creep object for transferer
+Each transferer stores the following in memory:
+    The category of the creep
+    The role of the creep
+    Current state of the creep
+    Target of current objective
+
+Possible states for a transferer:
+    pickup
+    move
+    withdraw
+    transfer
+
+Transferers are spawned with pickup as the default state.
+During pickup state, transferer will look for dropped resources near sources, tombstones of owned creeps or ruins. It will switch to transfer state once carry capacity is maxed and deposit the resources into relevant structures.
+
+
+
+For Energy deposition, the priorities are:
+    Extensions
+    Spawns
+    Factory(If trying to produce commodtities)
+    Labs(If boosting creep else skip)
+    Towers
+    Storage
+    Container
+    Terminal
+
+For Mineral deposition, the priorities are:
+    Factory(If trying to produce commodities transfer from storage OR storage maxed)
+    Lab(If trying to perform reaction else skip)
+    Storage
+    Terminal
+
+During room state 1, Transferer will 
