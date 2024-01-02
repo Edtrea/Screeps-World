@@ -6,13 +6,22 @@ For now, the goal does not include multi-room logic where nearby rooms could hel
 
 **This work-in-progess logic**
 
+
 # AI Hierarchy
 1. **Colony** ; Manages multiple rooms
 2. **Queen** ; Manages a single room
 3. **Creep** ; single creep
 
+# Tasks
 
-# Room
+Each level of the AI Hierarchy will hold a queue called taskboard.
+Each task is an objective to be completed e.g. harvest energy, pickup resource, repair structure, spawn new creep etc.
+
+
+# Colony
+
+
+# Queen/Room
 - Stage
   - Determined by controller level, structures unlocked limits found in constant `CONTROLLER_STRUCTURES`
 - State
@@ -24,9 +33,16 @@ Each room should operate based on its Stage + State
 | Stage/State     | Behaviour |
 | ---      | ---       |
 | 1-7/1 | Upgrader will constantly take energy to upgrade the controller |
-| 8/1 | Upgrader will only upgrade the controller when it is 50% from downgrading, use constant `CONTROLLER_DOWNGRADE` to calculate. Upgrader would be used as a harvester instead. |
-| */2 | Extensions/Spawn/Towers (in that order of priority) should always be stocked up with energy even if by transferring from containers or storage |
+| 8/1 | Upgrader will only upgrade the controller when it is 50% from downgrading. Use constant `CONTROLLER_DOWNGRADE` to calculate. Upgrader would be used as a harvester instead. |
+| */2 | Extensions/Spawn/Towers (in that order of priority) should always be stocked up with energy, even if by transferring from containers or storage |
 | * 3 | Extensions/Spawn/Towers (in that order of priority) should always be stocked up with energy even if by transferring from containers or storage, offensive creeps will also need to be spawned |
+
+Each Queen will monitor the room state and stage every 10 ticks and update its status in the memory.
+Each Queen will monitor the room's conditions and assign tasks to structures/creeps in the room as needed.
+Each Queen will monitor the room's memory's taskboard queue for requests and assign tasks to relevant structures/creeps to complete them.
+
+
+
 
 # Creeps
 Each creep's current role would be stored in `memory.role`, which will dictate which function it is expected to fulfil in the room.
@@ -71,7 +87,7 @@ When there are no transferring tasks to do, the transferer will renew itself.
 
 Only 1 upgrader should be created for each room.
 
-Upgrader's only task is to upgrade the controller. Once the controller is fully upgraded, the upgrader would only upgrade the controller when it is 50% in the process of downgrading. At other times, it will help with the transferer/builder's tasks.
+Upgrader's only task is to upgrade the controller. Once the controller is fully upgraded, the upgrader will only be spawned when the controller is 50% in the process of downgrading.
 
 ### Builder
 ![image](https://github.com/Edtrea/Screeps-World/assets/86367432/d4bcdc61-eb59-4999-94d7-14d9e6950e0e)
