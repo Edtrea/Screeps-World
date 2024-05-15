@@ -24,7 +24,8 @@ The structure of the game memory will be as follows:
 - **Room**: The root memory of a room object. Can be accessed using `Memory.rooms[room.name]` or `Room.memory`
 - **Creep**: The root memory of a creep object. Can be accessed using `Memory.creeps[creep.name]` or `Creep.memory`
   - **Category**: The category of the creep. Can only be 'Worker' or 'Soldier'
-  - **Role**: The creep's role. Determines what the creep does.
+  - **Role**: The creep's role. Determines the goal of the creep.
+  - **State**: The current creep's state. Determines what task the creep is doing to complete the goal.
   - **Target**: The current objective's target. It is an object's ID.
   - 
 
