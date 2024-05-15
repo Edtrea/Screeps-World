@@ -9,7 +9,7 @@ For now, the goal does not include multi-room logic where nearby rooms could hel
 
 # AI Hierarchy
 1. **Colony** ; Manages multiple rooms
-2. **Queen** ; Manages a single room
+2. **Room** ; Manages a single room
 3. **Creep** ; single creep
 
 # Tasks
@@ -17,11 +17,21 @@ For now, the goal does not include multi-room logic where nearby rooms could hel
 Each level of the AI Hierarchy will hold a queue called taskboard.
 Each task is an objective to be completed e.g. harvest energy, pickup resource, repair structure, spawn new creep etc.
 
+# In-game Memory
+
+The structure of the game memory will be as follows:
+- **Colony State**: The current state of the entire colony
+- **Room**: The root memory of a room object. Can be accessed using `Memory.rooms[room.name]` or `Room.memory`
+- **Creep**: The root memory of a creep object. Can be accessed using `Memory.creeps[creep.name]` or `Creep.memory`
+  - **Category**: The category of the creep. Can only be 'Worker' or 'Soldier'
+  - **Role**: The creep's role. Determines what the creep does.
+  - **Target**: The current objective's target. It is an object's ID.
+  - 
 
 # Colony
 
 
-# Queen/Room
+# Room
 - Stage
   - Determined by controller level, structures unlocked limits found in constant `CONTROLLER_STRUCTURES`
 - State
