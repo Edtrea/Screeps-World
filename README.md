@@ -12,11 +12,6 @@ For now, the goal does not include multi-room logic where nearby rooms could hel
 2. **Room** ; Manages a single room
 3. **Creep** ; single creep
 
-# Tasks
-
-Each level of the AI Hierarchy will hold a queue called taskboard.
-Each task is an objective to be completed e.g. harvest energy, pickup resource, repair structure, spawn new creep etc.
-
 # In-game Memory
 
 The structure of the game memory will be as follows:
