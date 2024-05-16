@@ -27,7 +27,8 @@ The structure of the game memory will be as follows:
   - **Role**: The creep's role. Determines the goal of the creep.
   - **State**: The current creep's state. Determines what task the creep is doing to complete the goal.
   - **Target**: The current objective's target. It is an object's ID.
-  - 
+  - **link**: The link paired with the creep. Applicable only for *harvesters*.
+  - **container**: The container paired with the creep. Applicable only for *harvesters*.
 
 # Colony
 
